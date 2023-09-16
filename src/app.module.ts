@@ -9,7 +9,7 @@ import { Lesson } from './lesson/lesson.entity';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mongodb',
-      url: 'mongodb://localhost/school',
+      url: 'mongodb://localhost:27017/?retryWrites=true&serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&3t.uriVersion=3&3t.connection.name=local&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true',
       synchronize: true,
       useUnifiedTopology: true,
       entities: [Lesson]

@@ -17,14 +17,16 @@ const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const lesson_entity_1 = require("./lesson.entity");
 const typeorm_2 = require("typeorm");
+const uuid_1 = require("uuid");
 let LessonService = class LessonService {
     constructor(lessonRepository) {
         this.lessonRepository = lessonRepository;
     }
     async createLesson(name, startDate, endDate) {
         const lesson = this.lessonRepository.create({
-            name, startDate, endDate
+            id: (0, uuid_1.v4)(), name, startDate, endDate
         });
+        return this.lessonRepository.save(lesson);
     }
 };
 exports.LessonService = LessonService;
