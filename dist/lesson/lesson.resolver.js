@@ -21,6 +21,8 @@ let LessonResolver = class LessonResolver {
             endDate: (new Date()).toISOString(),
         };
     }
+    createLesson() {
+    }
 };
 exports.LessonResolver = LessonResolver;
 __decorate([
@@ -29,6 +31,12 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], LessonResolver.prototype, "lesson", null);
+__decorate([
+    (0, graphql_1.Mutation)(returns => lesson_type_1.LessonType),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], LessonResolver.prototype, "createLesson", null);
 exports.LessonResolver = LessonResolver = __decorate([
     (0, graphql_1.Resolver)(of => lesson_type_1.LessonType)
 ], LessonResolver);

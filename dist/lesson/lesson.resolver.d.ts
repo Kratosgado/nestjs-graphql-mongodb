@@ -5,4 +5,5 @@ export declare class LessonResolver {
         startDate: string;
         endDate: string;
     };
+    createLesson(): void;
 }

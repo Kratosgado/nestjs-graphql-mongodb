@@ -21,7 +21,7 @@ exports.AppModule = AppModule = __decorate([
         imports: [
             typeorm_1.TypeOrmModule.forRoot({
                 type: 'mongodb',
-                url: 'mongo://localhost/school',
+                url: 'mongodb://localhost/school',
                 synchronize: true,
                 useUnifiedTopology: true,
                 entities: [lesson_entity_1.Lesson]
