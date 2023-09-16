@@ -16,6 +16,7 @@ exports.LessonResolver = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const lesson_type_1 = require("./lesson.type");
 const lesson_service_1 = require("./lesson.service");
+const lesson_input_1 = require("./lesson.input");
 let LessonResolver = class LessonResolver {
     constructor(lessonService) {
         this.lessonService = lessonService;
@@ -23,8 +24,8 @@ let LessonResolver = class LessonResolver {
     getLesson(id) {
         return this.lessonService.getLesson(id);
     }
-    createLesson(name, startDate, endDate) {
-        return this.lessonService.createLesson(name, startDate, endDate);
+    createLesson(createLessonInput) {
+        return this.lessonService.createLesson(createLessonInput);
     }
 };
 exports.LessonResolver = LessonResolver;
@@ -37,11 +38,9 @@ __decorate([
 ], LessonResolver.prototype, "getLesson", null);
 __decorate([
     (0, graphql_1.Mutation)(returns => lesson_type_1.LessonType),
-    __param(0, (0, graphql_1.Args)('name')),
-    __param(1, (0, graphql_1.Args)('startDate')),
-    __param(2, (0, graphql_1.Args)('endDate')),
+    __param(0, (0, graphql_1.Args)('createLessonInput')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, String, String]),
+    __metadata("design:paramtypes", [lesson_input_1.CreateLessonInput]),
     __metadata("design:returntype", void 0)
 ], LessonResolver.prototype, "createLesson", null);
 exports.LessonResolver = LessonResolver = __decorate([

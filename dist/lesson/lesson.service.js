@@ -22,7 +22,8 @@ let LessonService = class LessonService {
     constructor(lessonRepository) {
         this.lessonRepository = lessonRepository;
     }
-    async createLesson(name, startDate, endDate) {
+    async createLesson(createLessonInput) {
+        const { name, startDate, endDate } = createLessonInput;
         const lesson = this.lessonRepository.create({
             id: (0, uuid_1.v4)(), name, startDate, endDate
         });
