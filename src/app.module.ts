@@ -9,7 +9,7 @@ import { Lesson } from './lesson/lesson.entity';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mongodb',
-      url: 'mongodb://localhost:27017/?retryWrites=true&serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&3t.uriVersion=3&3t.connection.name=local&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true',
+      url: 'mongodb://127.0.0.1:27017/school',
       synchronize: true,
       useUnifiedTopology: true,
       entities: [Lesson]
@@ -22,3 +22,11 @@ import { Lesson } from './lesson/lesson.entity';
   ],
 })
 export class AppModule {}
+function ApolloServerPluginLandingPageDisabled(): import("@apollo/server").ApolloServerPlugin<any> {
+  throw new Error('Function not implemented.');
+}
+
+function ApolloServerPluginLandingPageGraphQLPlayground(): import("@apollo/server").ApolloServerPlugin<any> {
+  throw new Error('Function not implemented.');
+}
+

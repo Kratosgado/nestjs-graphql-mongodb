@@ -20,13 +20,8 @@ let LessonResolver = class LessonResolver {
     constructor(lessonService) {
         this.lessonService = lessonService;
     }
-    lesson() {
-        return {
-            id: 'ldjfsf',
-            name: 'pahd',
-            startDate: (new Date()).toISOString(),
-            endDate: (new Date()).toISOString(),
-        };
+    getLesson(id) {
+        return this.lessonService.getLesson(id);
     }
     createLesson(name, startDate, endDate) {
         return this.lessonService.createLesson(name, startDate, endDate);
@@ -35,10 +30,11 @@ let LessonResolver = class LessonResolver {
 exports.LessonResolver = LessonResolver;
 __decorate([
     (0, graphql_1.Query)(returns => lesson_type_1.LessonType),
+    __param(0, (0, graphql_1.Args)('id')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
-], LessonResolver.prototype, "lesson", null);
+], LessonResolver.prototype, "getLesson", null);
 __decorate([
     (0, graphql_1.Mutation)(returns => lesson_type_1.LessonType),
     __param(0, (0, graphql_1.Args)('name')),

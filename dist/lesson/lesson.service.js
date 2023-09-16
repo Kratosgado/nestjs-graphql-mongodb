@@ -28,6 +28,9 @@ let LessonService = class LessonService {
         });
         return this.lessonRepository.save(lesson);
     }
+    async getLesson(id) {
+        return this.lessonRepository.findOneBy({ id: id });
+    }
 };
 exports.LessonService = LessonService;
 exports.LessonService = LessonService = __decorate([
