@@ -5,7 +5,12 @@ import { CreateLessonInput } from "./lesson.input";
 
 @Resolver(of => LessonType)
 export class LessonResolver {
-   constructor(private lessonService: LessonService){}
+   constructor(private lessonService: LessonService) { }
+   
+   @Query(returns => [LessonType])
+   getAllLessons() {
+      return this.lessonService.getAllLessons();
+   }
    
    @Query(returns => LessonType)
    getLesson(

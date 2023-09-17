@@ -21,6 +21,9 @@ let LessonResolver = class LessonResolver {
     constructor(lessonService) {
         this.lessonService = lessonService;
     }
+    getAllLessons() {
+        return this.lessonService.getAllLessons();
+    }
     getLesson(id) {
         return this.lessonService.getLesson(id);
     }
@@ -29,6 +32,12 @@ let LessonResolver = class LessonResolver {
     }
 };
 exports.LessonResolver = LessonResolver;
+__decorate([
+    (0, graphql_1.Query)(returns => [lesson_type_1.LessonType]),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], LessonResolver.prototype, "getAllLessons", null);
 __decorate([
     (0, graphql_1.Query)(returns => lesson_type_1.LessonType),
     __param(0, (0, graphql_1.Args)('id')),

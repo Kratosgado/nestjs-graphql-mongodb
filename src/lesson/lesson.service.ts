@@ -11,6 +11,10 @@ export class LessonService {
       @InjectRepository(Lesson)
       private lessonRepository: Repository<Lesson>,
    ) { }
+
+   async getAllLessons(): Promise<Lesson[]> {
+      return this.lessonRepository.createQueryBuilder('lesson').getMany();
+   }
    
    async createLesson(createLessonInput: CreateLessonInput): Promise<Lesson> {
       const { name, startDate, endDate } = createLessonInput;

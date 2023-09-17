@@ -22,6 +22,9 @@ let LessonService = class LessonService {
     constructor(lessonRepository) {
         this.lessonRepository = lessonRepository;
     }
+    async getAllLessons() {
+        return this.lessonRepository.createQueryBuilder('lesson').getMany();
+    }
     async createLesson(createLessonInput) {
         const { name, startDate, endDate } = createLessonInput;
         const lesson = this.lessonRepository.create({
