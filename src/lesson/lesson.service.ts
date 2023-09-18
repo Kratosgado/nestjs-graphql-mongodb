@@ -13,7 +13,7 @@ export class LessonService {
    ) { }
 
    async getAllLessons(): Promise<Lesson[]> {
-      return this.lessonRepository.createQueryBuilder('lesson').getMany();
+      return this.lessonRepository.find();
    }
    
    async createLesson(createLessonInput: CreateLessonInput): Promise<Lesson> {

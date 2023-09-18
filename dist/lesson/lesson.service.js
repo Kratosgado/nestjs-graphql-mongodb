@@ -23,7 +23,7 @@ let LessonService = class LessonService {
         this.lessonRepository = lessonRepository;
     }
     async getAllLessons() {
-        return this.lessonRepository.createQueryBuilder('lesson').getMany();
+        return this.lessonRepository.find();
     }
     async createLesson(createLessonInput) {
         const { name, startDate, endDate } = createLessonInput;

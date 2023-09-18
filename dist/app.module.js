@@ -13,6 +13,7 @@ const lesson_module_1 = require("./lesson/lesson.module");
 const apollo_1 = require("@nestjs/apollo");
 const typeorm_1 = require("@nestjs/typeorm");
 const lesson_entity_1 = require("./lesson/lesson.entity");
+const student_module_1 = require("./student/student.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -30,7 +31,8 @@ exports.AppModule = AppModule = __decorate([
                 autoSchemaFile: true,
                 driver: apollo_1.ApolloDriver,
             }),
-            lesson_module_1.LessonModule
+            lesson_module_1.LessonModule,
+            student_module_1.StudentModule
         ],
     })
 ], AppModule);
