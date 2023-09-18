@@ -17,6 +17,7 @@ const graphql_1 = require("@nestjs/graphql");
 const lesson_type_1 = require("./lesson.type");
 const lesson_service_1 = require("./lesson.service");
 const lesson_input_1 = require("./lesson.input");
+const assign_student_to_lesson_input_1 = require("./assign-student-to-lesson.input");
 let LessonResolver = class LessonResolver {
     constructor(lessonService) {
         this.lessonService = lessonService;
@@ -29,6 +30,9 @@ let LessonResolver = class LessonResolver {
     }
     createLesson(createLessonInput) {
         return this.lessonService.createLesson(createLessonInput);
+    }
+    assignStudentsToLesson(assignStudentsToLesson) {
+        return this.lessonService.assignStudentsToLessons(assignStudentsToLesson);
     }
 };
 exports.LessonResolver = LessonResolver;
@@ -52,6 +56,13 @@ __decorate([
     __metadata("design:paramtypes", [lesson_input_1.CreateLessonInput]),
     __metadata("design:returntype", void 0)
 ], LessonResolver.prototype, "createLesson", null);
+__decorate([
+    (0, graphql_1.Mutation)(returns => lesson_type_1.LessonType),
+    __param(0, (0, graphql_1.Args)('assignStudentsToLessonInput')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [assign_student_to_lesson_input_1.AssignStudentsToLessonInput]),
+    __metadata("design:returntype", void 0)
+], LessonResolver.prototype, "assignStudentsToLesson", null);
 exports.LessonResolver = LessonResolver = __decorate([
     (0, graphql_1.Resolver)(of => lesson_type_1.LessonType),
     __metadata("design:paramtypes", [lesson_service_1.LessonService])

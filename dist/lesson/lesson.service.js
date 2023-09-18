@@ -28,12 +28,18 @@ let LessonService = class LessonService {
     async createLesson(createLessonInput) {
         const { name, startDate, endDate } = createLessonInput;
         const lesson = this.lessonRepository.create({
-            id: (0, uuid_1.v4)(), name, startDate, endDate
+            id: (0, uuid_1.v4)(), name, startDate, endDate, students: []
         });
         return this.lessonRepository.save(lesson);
     }
     async getLesson(id) {
         return this.lessonRepository.findOneBy({ id: id });
+    }
+    async assignStudentsToLessons(assignStudentsToLesson) {
+        const { lessonId, studentIds } = assignStudentsToLesson;
+        const lesson = await this.getLesson(lessonId);
+        lesson.students = [...lesson.students, ...studentIds];
+        return this.lessonRepository.save(lesson);
     }
 };
 exports.LessonService = LessonService;
