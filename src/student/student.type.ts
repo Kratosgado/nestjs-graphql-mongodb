@@ -7,5 +7,7 @@ export class StudentType {
 
    @Field()
    firstName: string;
-   
+
+   @Field()
+   secondName: string;
 }

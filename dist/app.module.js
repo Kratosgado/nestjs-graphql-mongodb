@@ -37,10 +37,4 @@ exports.AppModule = AppModule = __decorate([
         ],
     })
 ], AppModule);
-function ApolloServerPluginLandingPageDisabled() {
-    throw new Error('Function not implemented.');
-}
-function ApolloServerPluginLandingPageGraphQLPlayground() {
-    throw new Error('Function not implemented.');
-}
 //# sourceMappingURL=app.module.js.map

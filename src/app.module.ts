@@ -25,11 +25,4 @@ import { Student } from './student/student.entity';
   ],
 })
 export class AppModule {}
-function ApolloServerPluginLandingPageDisabled(): import("@apollo/server").ApolloServerPlugin<any> {
-  throw new Error('Function not implemented.');
-}
-
-function ApolloServerPluginLandingPageGraphQLPlayground(): import("@apollo/server").ApolloServerPlugin<any> {
-  throw new Error('Function not implemented.');
-}
 

@@ -11,6 +11,7 @@ const common_1 = require("@nestjs/common");
 const student_service_1 = require("./student.service");
 const typeorm_1 = require("@nestjs/typeorm");
 const student_entity_1 = require("./student.entity");
+const lesson_resolver_1 = require("../lesson/lesson.resolver");
 let StudentModule = class StudentModule {
 };
 exports.StudentModule = StudentModule;
@@ -19,7 +20,7 @@ exports.StudentModule = StudentModule = __decorate([
         imports: [
             typeorm_1.TypeOrmModule.forFeature([student_entity_1.Student])
         ],
-        providers: [student_service_1.StudentService]
+        providers: [student_service_1.StudentService, lesson_resolver_1.LessonResolver]
     })
 ], StudentModule);
 //# sourceMappingURL=student.module.js.map

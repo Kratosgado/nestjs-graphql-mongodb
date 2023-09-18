@@ -22,6 +22,10 @@ __decorate([
     (0, graphql_1.Field)(),
     __metadata("design:type", String)
 ], StudentType.prototype, "firstName", void 0);
+__decorate([
+    (0, graphql_1.Field)(),
+    __metadata("design:type", String)
+], StudentType.prototype, "secondName", void 0);
 exports.StudentType = StudentType = __decorate([
     (0, graphql_1.ObjectType)('Student')
 ], StudentType);
