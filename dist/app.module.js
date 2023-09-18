@@ -14,6 +14,7 @@ const apollo_1 = require("@nestjs/apollo");
 const typeorm_1 = require("@nestjs/typeorm");
 const lesson_entity_1 = require("./lesson/lesson.entity");
 const student_module_1 = require("./student/student.module");
+const student_entity_1 = require("./student/student.entity");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -25,7 +26,7 @@ exports.AppModule = AppModule = __decorate([
                 url: 'mongodb://127.0.0.1:27017/school',
                 synchronize: true,
                 useUnifiedTopology: true,
-                entities: [lesson_entity_1.Lesson]
+                entities: [lesson_entity_1.Lesson, student_entity_1.Student]
             }),
             graphql_1.GraphQLModule.forRoot({
                 autoSchemaFile: true,
