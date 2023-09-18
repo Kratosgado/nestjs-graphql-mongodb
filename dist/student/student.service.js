@@ -22,6 +22,9 @@ let StudentService = class StudentService {
     constructor(studentRepository) {
         this.studentRepository = studentRepository;
     }
+    async getAllStudent() {
+        return this.studentRepository.find();
+    }
     async createStudent(createStudentInput) {
         const { firstName, secondName } = createStudentInput;
         const newStudent = this.studentRepository.create({

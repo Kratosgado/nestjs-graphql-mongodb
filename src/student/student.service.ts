@@ -10,6 +10,10 @@ import { CreateStudentInput } from './create-student.input';
 @Injectable()
 export class StudentService {
    constructor(@InjectRepository(Student) private studentRepository: Repository<Student>) { }
+
+   async getAllStudent(): Promise<Student[]> {
+      return this.studentRepository.find();
+   }
    
    async createStudent(createStudentInput: CreateStudentInput): Promise<Student> {
       const { firstName, secondName } = createStudentInput;

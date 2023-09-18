@@ -16,11 +16,13 @@ exports.StudentResolver = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const student_type_1 = require("./student.type");
 const student_service_1 = require("./student.service");
-const lesson_type_1 = require("../lesson/lesson.type");
 const create_student_input_1 = require("./create-student.input");
 let StudentResolver = class StudentResolver {
     constructor(studentService) {
         this.studentService = studentService;
+    }
+    getAllStudents() {
+        return this.studentService.getAllStudent();
     }
     createStudent(createStudentInput) {
         return this.studentService.createStudent(createStudentInput);
@@ -28,7 +30,13 @@ let StudentResolver = class StudentResolver {
 };
 exports.StudentResolver = StudentResolver;
 __decorate([
-    (0, graphql_1.Mutation)(returns => lesson_type_1.LessonType),
+    (0, graphql_1.Query)(returns => [student_type_1.StudentType]),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], StudentResolver.prototype, "getAllStudents", null);
+__decorate([
+    (0, graphql_1.Mutation)(returns => student_type_1.StudentType),
     __param(0, (0, graphql_1.Args)('createStudentInput')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_student_input_1.CreateStudentInput]),
