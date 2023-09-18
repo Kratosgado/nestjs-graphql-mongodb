@@ -4,5 +4,6 @@ export declare class StudentResolver {
     private studentService;
     constructor(studentService: StudentService);
     getAllStudents(): Promise<import("./student.entity").Student[]>;
+    getStudentById(id: string): Promise<import("./student.entity").Student>;
     createStudent(createStudentInput: CreateStudentInput): Promise<import("./student.entity").Student>;
 }

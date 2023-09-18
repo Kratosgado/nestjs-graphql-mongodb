@@ -11,7 +11,12 @@ export class StudentResolver {
 
    @Query(returns => [StudentType])
    getAllStudents() {
-      return this.studentService.getAllStudent();
+      return this.studentService.getAllStudents();
+   }
+
+   @Query(returns => StudentType)
+   getStudentById(@Args('id') id: string) {
+      return this.studentService.getStudentById(id);
    }
    
    @Mutation(returns => StudentType)

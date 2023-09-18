@@ -11,8 +11,12 @@ import { CreateStudentInput } from './create-student.input';
 export class StudentService {
    constructor(@InjectRepository(Student) private studentRepository: Repository<Student>) { }
 
-   async getAllStudent(): Promise<Student[]> {
+   async getAllStudents(): Promise<Student[]> {
       return this.studentRepository.find();
+   }
+
+   async getStudentById(id: string): Promise<Student> {
+      return this.studentRepository.findOneBy({id})
    }
    
    async createStudent(createStudentInput: CreateStudentInput): Promise<Student> {
