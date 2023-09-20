@@ -26,9 +26,9 @@ let LessonService = class LessonService {
         return this.lessonRepository.find();
     }
     async createLesson(createLessonInput) {
-        const { name, startDate, endDate } = createLessonInput;
+        const { name, startDate, endDate, students } = createLessonInput;
         const lesson = this.lessonRepository.create({
-            id: (0, uuid_1.v4)(), name, startDate, endDate, students: []
+            id: (0, uuid_1.v4)(), name, startDate, endDate, students
         });
         return this.lessonRepository.save(lesson);
     }
