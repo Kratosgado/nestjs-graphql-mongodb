@@ -4,12 +4,16 @@ import { LessonService } from "./lesson.service";
 import { CreateLessonInput } from "./lesson.input";
 import { AssignStudentsToLessonInput } from "./assign-student-to-lesson.input";
 import { Lesson } from "./lesson.entity";
+import { StudentService } from "src/student/student.service";
 
 @Resolver(of => LessonType)
 export class LessonResolver {
-   constructor(private lessonService: LessonService) { }
+   constructor(
+      private lessonService: LessonService,
+      private studentService: StudentService,
+   ) { }
    
-   @Query(returns => [LessonType])
+   @Query(returns => [LessonType], {name: "lessonsljiok"})
    getAllLessons() {
       return this.lessonService.getAllLessons();
    }
@@ -33,6 +37,6 @@ export class LessonResolver {
 
    @ResolveField()
    async students(@Parent() lesson: Lesson) {
-      console.log(lesson);
+      return this.studentService.getManyStudents(lesson.students)
    }
 }

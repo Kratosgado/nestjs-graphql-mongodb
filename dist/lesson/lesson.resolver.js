@@ -19,9 +19,11 @@ const lesson_service_1 = require("./lesson.service");
 const lesson_input_1 = require("./lesson.input");
 const assign_student_to_lesson_input_1 = require("./assign-student-to-lesson.input");
 const lesson_entity_1 = require("./lesson.entity");
+const student_service_1 = require("../student/student.service");
 let LessonResolver = class LessonResolver {
-    constructor(lessonService) {
+    constructor(lessonService, studentService) {
         this.lessonService = lessonService;
+        this.studentService = studentService;
     }
     getAllLessons() {
         return this.lessonService.getAllLessons();
@@ -36,12 +38,12 @@ let LessonResolver = class LessonResolver {
         return this.lessonService.assignStudentsToLessons(assignStudentsToLesson);
     }
     async students(lesson) {
-        console.log(lesson);
+        return this.studentService.getManyStudents(lesson.students);
     }
 };
 exports.LessonResolver = LessonResolver;
 __decorate([
-    (0, graphql_1.Query)(returns => [lesson_type_1.LessonType]),
+    (0, graphql_1.Query)(returns => [lesson_type_1.LessonType], { name: "lessonsljiok" }),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
@@ -76,6 +78,7 @@ __decorate([
 ], LessonResolver.prototype, "students", null);
 exports.LessonResolver = LessonResolver = __decorate([
     (0, graphql_1.Resolver)(of => lesson_type_1.LessonType),
-    __metadata("design:paramtypes", [lesson_service_1.LessonService])
+    __metadata("design:paramtypes", [lesson_service_1.LessonService,
+        student_service_1.StudentService])
 ], LessonResolver);
 //# sourceMappingURL=lesson.resolver.js.map

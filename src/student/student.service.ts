@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
+import { InjectRepository} from '@nestjs/typeorm';
 import { v4 as uuid } from 'uuid';
 
 import { Student } from './student.entity';
@@ -26,5 +26,12 @@ export class StudentService {
          id: uuid(), firstName, secondName
       });
       return this.studentRepository.save(newStudent);
+   }
+
+   async getManyStudents(studentIds: string[]): Promise<Student[]>{
+      return this.studentRepository.find({
+         where: {
+             id: studentIds[0] 
+      }});
    }
 }

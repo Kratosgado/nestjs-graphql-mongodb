@@ -35,6 +35,13 @@ let StudentService = class StudentService {
         });
         return this.studentRepository.save(newStudent);
     }
+    async getManyStudents(studentIds) {
+        return this.studentRepository.find({
+            where: {
+                id: studentIds[0]
+            }
+        });
+    }
 };
 exports.StudentService = StudentService;
 exports.StudentService = StudentService = __decorate([

@@ -20,7 +20,8 @@ exports.StudentModule = StudentModule = __decorate([
         imports: [
             typeorm_1.TypeOrmModule.forFeature([student_entity_1.Student])
         ],
-        providers: [student_service_1.StudentService, student_resolver_1.StudentResolver]
+        providers: [student_service_1.StudentService, student_resolver_1.StudentResolver],
+        exports: [student_service_1.StudentService]
     })
 ], StudentModule);
 //# sourceMappingURL=student.module.js.map
